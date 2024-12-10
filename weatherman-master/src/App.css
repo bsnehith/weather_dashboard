@@ -1,0 +1,270 @@
+/* Define global variables for both themes */
+:root {
+  --background-light: #ffffff;
+  --background-dark: #121212;
+  --text-light: #000000;
+  --text-dark: #ffffff;
+  --primary-color: #f1c40f;
+  --button-bg-light: #f1c40f;
+  --button-bg-dark: #333;
+  --card-shadow-light: rgba(0, 0, 0, 0.1);
+  --card-shadow-dark: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme styles (default) */
+body {
+  background-color: var(--background-light) !important;
+  color: var(--text-light);
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.right-box {
+  background-color: var(--background-light) !important;
+}
+
+/* Dark theme styles */
+body.dark-mode {
+  background-color: var(--background-dark) !important;
+  color: var(--text-dark);
+}
+
+.right-box.dark-mode {
+  background-color: var(--background-dark) !important;
+  color: var(--text-dark);
+}
+
+/* Responsive media query for large screens */
+@media (min-width: 992px) {
+  .right-box {
+    background-color: RGBA(248, 249, 250, var(--bs-bg-opacity, 1)) !important;
+  }
+
+  .right-box.dark-mode {
+    background-color: #333 !important;
+  }
+}
+
+/* Styling for cards */
+.card {
+  padding: 2em;
+  background-color: var(--background-light);
+  color: var(--text-light);
+  box-shadow: var(--card-shadow-light);
+  border-radius: 10px;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s ease-in-out;
+}
+
+.card.dark-mode {
+  background-color: var(--background-dark);
+  color: var(--text-dark);
+  box-shadow: var(--card-shadow-dark);
+}
+
+/* Hover effect for card */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles with hover effects */
+button, .btn {
+  background-color: var(--button-bg-light);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+}
+
+button.dark-mode, .btn.dark-mode {
+  background-color: var(--button-bg-dark);
+  color: var(--text-dark);
+}
+
+button.dark-mode:hover, .btn.dark-mode:hover {
+  background-color: #444;
+  transform: scale(1.05);
+}
+
+/* Input field animation on focus */
+.input-animation {
+  transition: all 0.3s ease;
+}
+
+.input-animation:focus {
+  border-color: var(--primary-color);
+  background-color: #f8f9fa;
+  box-shadow: 0 0 10px rgba(241, 196, 15, 0.6);
+}
+
+/* Floating search icon effect */
+.search-icon-animation {
+  transition: transform 0.3s ease-in-out;
+}
+
+.search-icon-animation:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Clears the 'X' from Internet Explorer */
+input[type=search]::-ms-clear {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Clears the 'X' from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+/* Smooth transitions for the input */
+.input-group input {
+  transition: all 0.3s ease;
+}
+
+/* Background animation for the body */
+body {
+  animation: fadeInBackground 1s ease-out;
+}
+
+@keyframes fadeInBackground {
+  0% {
+    background-color: var(--background-light);
+  }
+  100% {
+    background-color: var(--background-dark);
+  }
+}
+
+/* Card flip animation (for showcasing weather details) */
+.card-flip {
+  perspective: 1000px;
+  width: 300px;
+  height: 400px;
+}
+
+.card-flip .flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip .flip-card-front, .card-flip .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-flip .flip-card-front {
+  background-color: #f1f1f1;
+}
+
+.card-flip .flip-card-back {
+  background-color: #333;
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+/* Animations for modal popups or alerts */
+.modal-content {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.modal-content.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.modal-content.hide {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+/* Hover animations for links */
+a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Styling for the theme toggle button */
+.toggle-theme-btn {
+  position: fixed; /* Keep the button fixed on the screen */
+  top: 50%; /* Position vertically at the center */
+  left: 50%; /* Position horizontally at the center */
+  transform: translate(-50%, -50%); /* Adjust for exact centering */
+  z-index: 9999; /* Make sure it appears above other elements */
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+.toggle-theme-btn:hover {
+  transform: translate(-50%, -50%) scale(1.1); /* Slight scale effect on hover */
+  background-color: var(--primary-color); /* Change background color on hover */
+}
+
+/* Container to align the theme toggle button below the search input */
+.theme-toggle-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  margin-top: 15px; /* Space between the search bar and the theme toggle button */
+}
+
+/* Styling for the theme toggle button */
+.toggle-theme-btn {
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s ease;
+  width: 200px; /* Adjust button width */
+}
+
+.toggle-theme-btn:hover {
+  transform: scale(1.1); /* Slight scale effect on hover */
+  background-color: var(--primary-color); /* Change background color on hover */
+}
+
+/* Light theme button */
+body:not(.dark-mode) .toggle-theme-btn {
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+/* Dark theme button */
+body.dark-mode .toggle-theme-btn {
+  background-color: #333;
+  color: #fff;
+}

@@ -1,0 +1,54 @@
+/* Fade-in animation for the title */
+.fade-in-text {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for the input field */
+.input-animation {
+    transition: all 0.3s ease;
+}
+
+.input-animation:focus {
+    border-color: #f1c40f;  /* Change border color on focus */
+    background-color: #f8f9fa;  /* Light background color */
+    box-shadow: 0 0 10px rgba(241, 196, 15, 0.6);
+}
+
+/* Shake animation for invalid input */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-10px); }
+    100% { transform: translateX(0); }
+}
+
+/* Search icon animation on hover */
+.search-icon-animation {
+    transition: transform 0.3s ease-in-out;
+}
+
+.search-icon-animation:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+/* Smooth transitions for the input */
+.input-group input {
+    transition: all 0.3s ease;
+}
